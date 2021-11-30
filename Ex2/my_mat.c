@@ -1,62 +1,63 @@
 #include "my_mat.h"
-void matrix(){
-    MAT mat;
+#include <stdio.h>
+void A(){
    int i, j;
    for(i=0; i<10; i++) {
       for(j=0;j<10;j++) {
-         scanf("%d", &mat[i][j]);
+         scanf("%d", &MAT[i][j]);
+         if(MAT[i][j]==0){
+             if(i != j){
+                 MAT[i][j]=INF;
+             }
+         }
       }
    }
 }
 
-bool path_excist(MAT A, int i, int j){
-    if (i==j)
-    {
+bool B(int i, int j){
+    if(an[i][j]!=0 && an[i][j] != INF){
         return true;
     }
-    else
-    {
-        
+    else{ 
+        return false;
     }
-    
-    return false;
 }
-
-int shortest_path(MAT A, int i, int j){
-    
-    if (i==j)
-    {
-        return 0;
+int C(int i, int j){
+    if(an[i][j]!=0 &&  an[i][j] != INF){
+        return an[i][j];
     }
-    
-    else if(!path_excist(A,i,j)) return -1;
-    else{
-    
-    for (int k = 0; i < V; i++)
+    else{ 
+        return -1;
+    }
+}
+void shortest_path(int MAT[V][V]){
+    int i;
+    int j;
+    for (i = 0; i < V; i++){
+        for (j = 0; j < V; j++){
+            an[i][j] = MAT[i][j];
+        }
+    }
+
+   
+    for (int k = 0; k < V; k++)
     {
-       for (int i = 0; i < V; i++)
+       for ( i = 0; i < V; i++)
        {
-           for (int j = 0; j < V; j++)
+           for ( j = 0; j < V; j++)
            {
-              if (A[i][j]>A[i][k]+A[k][j])
+              if (an[i][j]>an[i][k]+an[k][j])
               {
-                A[i][j]=A[i][k]+A[k][j];
+                an[i][j]=an[i][k]+an[k][j];
               }
               
            }
            
        }
        
-    }
-    return A[i][j];
-    }
-    
+    }  
 }
-    int main(int argc, char const *argv[])
-    {
-       
-        return 0;
-    }
+
     
 
 
