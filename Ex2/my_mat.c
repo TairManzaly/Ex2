@@ -24,7 +24,7 @@ bool B(int i, int j){
 }
 int C(int i, int j){
     if(AM[i][j]!=0 &&  AM[i][j] != INF){
-        return A[i][j];
+        return AM[i][j];
     }
     else{ 
         return -1;
@@ -57,7 +57,3 @@ void shortest_path(int MAT[V][V]){
        
     }  
 }
-
-    
-
-
