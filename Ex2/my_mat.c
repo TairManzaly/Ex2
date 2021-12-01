@@ -15,7 +15,7 @@ void A(){
 }
 
 bool B(int i, int j){
-    if(an[i][j]!=0 && an[i][j] != INF){
+    if(AM[i][j]!=0 && AM[i][j] != INF){
         return true;
     }
     else{ 
@@ -23,8 +23,8 @@ bool B(int i, int j){
     }
 }
 int C(int i, int j){
-    if(an[i][j]!=0 &&  an[i][j] != INF){
-        return an[i][j];
+    if(AM[i][j]!=0 &&  AM[i][j] != INF){
+        return A[i][j];
     }
     else{ 
         return -1;
@@ -35,7 +35,7 @@ void shortest_path(int MAT[V][V]){
     int j;
     for (i = 0; i < V; i++){
         for (j = 0; j < V; j++){
-            an[i][j] = MAT[i][j];
+            AM[i][j] = MAT[i][j];
         }
     }
 
@@ -46,9 +46,9 @@ void shortest_path(int MAT[V][V]){
        {
            for ( j = 0; j < V; j++)
            {
-              if (an[i][j]>an[i][k]+an[k][j])
+              if (AM[i][j]>AM[i][k]+AM[k][j])
               {
-                an[i][j]=an[i][k]+an[k][j];
+                AM[i][j]=AM[i][k]+AM[k][j];
               }
               
            }

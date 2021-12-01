@@ -5,7 +5,7 @@ int main()
 char a;
 int i,j;
 scanf("%c",&a);
-while(a != D){
+while(a != 'D'){
     if(a == 'A'){
        A();
        shortest_path(MAT);
